@@ -19,6 +19,27 @@ const questions = [
         name: "table_of_contents",
         message: "Provide table of contents for README.",
     },
+    {
+        type: "input",
+        name: "installation",
+        message: "How can this application be installed?",
+    },
+    {
+        type: "input",
+        name: "usage",
+        message: "How is the application used?",
+    },
+    {
+        type: "input",
+        name: "license",
+        message: "Please provide a license for the application.",
+    },
+    {
+        type: "input",
+        name: "contributing",
+        message: "List any contributors on the application.",
+    },
+
 
 ];
 
