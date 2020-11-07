@@ -39,6 +39,16 @@ const questions = [
         name: "contributing",
         message: "List any contributors on the application.",
     },
+    {
+        type: "input",
+        name: "test",
+        message: "What tests have been run on the application?",
+    },
+    {
+        type: "input",
+        name: "questions",
+        message: "Any common questions about the application?",
+    }
 
 
 ];
