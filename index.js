@@ -9,8 +9,16 @@ const questions = [
         message: "What is the title of your application?",
     },
     {
+        type: "input",
+        name: "description",
+        message: "Provide a brief description of application.",
 
-    }
+    },
+    {
+        type: "input",
+        name: "table_of_contents",
+        message: "Provide table of contents for README.",
+    },
 
 ];
 
