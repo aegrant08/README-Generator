@@ -49,9 +49,11 @@ const questions = [
         name: "questions",
         message: "Any common questions about the application?",
     }
-
-
 ];
+
+inquirer.prompt(questions).then((answers) => {
+    console.log(JSON.stringify(answers, null, ' '));
+});
 
 // function to write README file
 function writeToFile(fileName, data) {
