@@ -1,18 +1,31 @@
-var inquirer = require("inquirer");
-var fs = require('fs');
+const inquirer = require("inquirer");
+const fs = require('fs');
+const generateReadMe = require("./utils/generateMarkdown");
+const axios = require("axios");
+
 
 // array of questions for user
 const questions = [
     {
         type: "input",
         name: "title",
-        message: "What is the title of your application?",
+        message: "What is the title of your project?",
+    },
+    {
+        type: "input",
+        name: "badge",
+        message: "Please insert your badge link(s)."
     },
     {
         type: "input",
         name: "description",
-        message: "Provide a brief description of application.",
+        message: "Provide a brief description of the project.",
 
+    },
+    {
+        type: "input",
+        name: "installation",
+        message: "Provide detailed instructions for installation."
     },
     {
         type: "input",
@@ -53,6 +66,10 @@ const questions = [
 
 inquirer.prompt(questions).then((answers) => {
     console.log(JSON.stringify(answers, null, ' '));
+
+    fs.writeFile()
+
+    // fs.writeFile function
 });
 
 // function to write README file
