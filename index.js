@@ -1,10 +1,11 @@
+// variables
 const inquirer = require("inquirer");
 const fs = require('fs');
 const generateReadMe = require("./utils/generateMarkdown");
 const axios = require("axios");
 
 
-// array of questions for user
+// array of questions for user input
 const questions = [
     {
         type: "input",
@@ -61,25 +62,50 @@ const questions = [
         type: "input",
         name: "questions",
         message: "Any common questions about the application?",
+    },
+    {
+        type: "input",
+        name: "user",
+        message: "What is your github username?",
+    },
+    {
+        type: "input",
+        name: "repo",
+        message: "Please provide your repo link.",
     }
 ];
 
+// function taking user input and creating a generated README
 inquirer.prompt(questions).then((answers) => {
-    console.log(JSON.stringify(answers, null, ' '));
+    //console.log(JSON.stringify(answers, null, ' '));
 
-    fs.writeFile()
+    const queryURL = `https://api.github.com/users/${data.user}`;
 
-    // fs.writeFile function
+    axios.get(queryURL).then(function (res) {
+
+        const githubInfo = {
+            githubAvatar: res.data.avatar_url,
+            profile: res.data.html_url,
+            name: res.data.name
+        };
+
+        // function to confirm README is successfully generated
+        fs.writeFile("README.md", generate(data, githubInfo), function (err) {
+            if (err) {
+                throw err;
+            };
+
+            console.log("README successfully created.");
+        });
+    });
+
 });
 
-// function to write README file
-function writeToFile(fileName, data) {
-}
 
-// function to initialize program
+// function to initialize generating README
 function init() {
 
 }
 
-// function call to initialize program
+// function call to generated README
 init();
